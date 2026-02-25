@@ -69,9 +69,17 @@ const KanbanBoard = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          flexDirection: { xs: "column", sm: "row" },
+          gap: 2,
         }}
       >
-        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: "bold",
+            fontSize: { xs: "1.5rem", md: "2.125rem" },
+          }}
+        >
           Kanban Board
         </Typography>
         <TextField
@@ -79,7 +87,12 @@ const KanbanBoard = () => {
           size="small"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          sx={{ bgcolor: "white", borderRadius: 1, width: 300 }}
+          sx={{
+            bgcolor: "white",
+            borderRadius: 1,
+
+            width: { xs: "100%", sm: 300 },
+          }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -94,6 +107,7 @@ const KanbanBoard = () => {
         sx={{
           display: "flex",
           overflowX: "auto",
+          WebkitOverflowScrolling: "touch",
           gap: 3,
           px: 2,
           pb: 3,
@@ -112,7 +126,15 @@ const KanbanBoard = () => {
         }}
       >
         {categories.map((col) => (
-          <Box key={col.id} sx={{ minWidth: 400, maxWidth: 400 }}>
+          <Box
+            key={col.id}
+            sx={{
+              minWidth: { xs: 300, sm: 350 },
+              maxWidth: { xs: 300, sm: 350 },
+              mr: { xs: 1, sm: 0 },
+              height: "100%",
+            }}
+          >
             <Paper
               elevation={0}
               sx={{
@@ -121,6 +143,7 @@ const KanbanBoard = () => {
                 borderRadius: 1,
                 display: "flex",
                 flexDirection: "column",
+                height: "100%",
                 maxHeight: "calc(100vh - 200px)",
               }}
             >
@@ -133,7 +156,6 @@ const KanbanBoard = () => {
 
               <Box
                 sx={{
-                  flexGrow: 1,
                   overflowY: "auto",
                   pr: 0.5,
                   mb: 1,
