@@ -4,7 +4,6 @@ A modern, responsive Kanban board application built with Next.js 16, Material-UI
 
 ## Features
 
-- **Drag & Drop Interface**: Intuitive task management with @hello-pangea/dnd
 - **Real-time Search**: Filter tasks by title or description
 - **CRUD Operations**: Create, read, update, and delete tasks
 - **Column-based Organization**: Backlog, In Progress, Review, and Done columns
