@@ -54,7 +54,7 @@ my-kanban/
 1. Clone the repository:
 
 ```bash
-git clone [<repository-url>](https://github.com/hend-essam/my-kanban.git)
+git clone https://github.com/hend-essam/my-kanban.git
 cd my-kanban
 ```
 
