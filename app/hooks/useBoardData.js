@@ -2,7 +2,7 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = "https://699e758178dda56d396a4cb8.mockapi.io/api/v1";
 
 export const useBoardData = () => {
   const queryClient = useQueryClient();
@@ -17,18 +17,18 @@ export const useBoardData = () => {
 
   const addTask = useMutation({
     mutationFn: (newTask) => axios.post(`${BASE_URL}/tasks`, newTask),
-    onSuccess: () => queryClient.invalidateQueries(["tasks"]),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tasks"] }),
   });
 
   const updateTask = useMutation({
     mutationFn: ({ id, updates }) =>
-      axios.patch(`${BASE_URL}/tasks/${id}`, updates),
-    onSuccess: () => queryClient.invalidateQueries(["tasks"]),
+      axios.put(`${BASE_URL}/tasks/${id}`, updates),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tasks"] }),
   });
 
   const deleteTask = useMutation({
     mutationFn: (id) => axios.delete(`${BASE_URL}/tasks/${id}`),
-    onSuccess: () => queryClient.invalidateQueries(["tasks"]),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tasks"] }),
   });
 
   const { data: categories = [], isLoading: categoriesLoading } = useQuery({

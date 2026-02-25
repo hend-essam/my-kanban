@@ -72,7 +72,7 @@ const KanbanBoard = () => {
         }}
       >
         <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-          Kanaban Board
+          Kanban Board
         </Typography>
         <TextField
           placeholder="Search tasks..."
@@ -150,7 +150,7 @@ const KanbanBoard = () => {
                 }}
               >
                 {tasks
-                  ?.filter((t) => t.column === col.id)
+                  .filter((t) => String(t.column) === String(col.id))
                   .filter(
                     (t) =>
                       t.title
